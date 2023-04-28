@@ -1,0 +1,22 @@
+<nav *ngIf="outputdata == 0" class="navbar navbar-dark" style="background-color: #18a558">
+  <div class="container-fluid">
+    <a class="navbar-brand" (click)="navigate()" style="cursor: pointer"
+      >Home</a
+    >
+  </div>
+</nav>
+<nav *ngIf="outputdata==1" class="navbar navbar-dark" style="background-color: #b22222;">
+  <div class="container-fluid">
+    <a class="navbar-brand" (click)="navigate()" style="cursor: pointer"
+      >Home</a
+    >
+  </div>
+</nav>
+<!-- ----------------------------- commented out- Do above -->
+<router-outlet></router-outlet>
+<div class="container" *ngIf="outputdata == 0">
+  <app-no-heart-disease [output]="show"></app-no-heart-disease>
+</div>
+<div class="container" *ngIf="outputdata == 1">
+  <app-heart-disease-detected [output]="show"></app-heart-disease-detected>
+</div>
