@@ -20,8 +20,13 @@ phases:
       # - echo testing...
       # - echo building...
       - ng build
+  post_build:
+    commands:
+      - echo building artifacts...
+      - mkdir -p dist/heartPortal
+      - cp -r * dist/heartPortal
 artifacts:
   files:
-    - "*/"
+    - "**/*"
   discard-paths: no
   base-directory: dist/heartPortal
