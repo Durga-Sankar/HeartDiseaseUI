@@ -1,4 +1,4 @@
-version: 0.1
+version: 0.2
 
 phases:
   install:
@@ -17,16 +17,17 @@ phases:
       - npm install
   build:
     commands:
-      # - echo testing...
-      # - echo building...
+      - echo testing...
+      - echo building...
       - ng build
   post_build:
     commands:
       - echo building artifacts...
       - mkdir -p dist/heartPortal
-      - cp -r * dist/heartPortal
+      - cp -r --exclude=dist dist/* dist/heartPortal/
+
 artifacts:
   files:
-    - "**/*"
+    - "*/"
   discard-paths: no
   base-directory: dist/heartPortal
