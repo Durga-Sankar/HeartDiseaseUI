@@ -24,7 +24,7 @@ phases:
     commands:
       - echo building artifacts...
       - mkdir -p dist/heartPortal
-      - cp -r --exclude=dist dist/* dist/heartPortal/
+      - find dist -maxdepth 1 ! -name 'dist' -exec cp -r {} dist/heartPortal \;
 
 artifacts:
   files:
